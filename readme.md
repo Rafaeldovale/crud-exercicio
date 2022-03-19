@@ -1,4 +1,4 @@
-Exercício curso técnico:
+Exercício curso técnico: programação web III
 
 1) Você deverá criar um sistema de cadastro de clientes conforme as especificações a seguir:
 
