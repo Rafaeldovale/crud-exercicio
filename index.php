@@ -1,5 +1,12 @@
 <?php
-session_start();
+require 'conexao.php';
+
+$lista=[];
+$sql = $pdo->query("SELECT * FROM clientes");
+
+if($sql->rowCount()>0){
+    $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
+}
 
 ?>
 <!DOCTYPE html>
@@ -17,22 +24,33 @@ session_start();
     <?php
     if(isset( $_SESSION['msg']))
         echo  $_SESSION['msg']; // vai mostar a mensagem
-        unset( $_SESSION['msg']); //vai destruir e imprimir somente uma vez
+        
     ?>
-    <form method="POST" action="processo.php">
+  
+   <table>
+       <tr>
+           <th>ID</th>
+           <th>NOME</th>
+           <th>EMAIL</th>
+           <th>Ações</th>
 
-        <div id="nome">
-            <label>Nome:</label>
-            <input type="text" name="nome" placeholder="digite seu nome"><br><br>
-        </div>
+       </tr>
+       <?php foreach($lista as $usuario):?>
+            <tr>
+                <td><?php echo $usuario['id'];?></td>
+                <td><?php echo $usuario['nome'];?></td>
+                <td><?php echo $usuario['email'];?></td>
+                <td>
+                    <a href="editar.php?id=<?php echo $usuario['id'];?>">[ EDITAR ]</a>
+                    <a href="delete.php?id=<?php echo $usuario['id'];?>"onclick="return confirm('Tem certeza que deseja fazer esta operação')">[ DELETAR ]</a>
+                </td>
+            </tr>
 
-        <div id="email">
-            <label>Email:</label>
-            <input type="email" name="email" placeholder="digite seu email"><br><br>
-        </div>
-
-        <button>Cadastrar</button>
-
-    </form>
+       <?php endforeach;?>
+       
+   </table>
+   <form method="POST" action="adicionar.php">
+       <button>Cadastrar</button>
+   </form>
 </body>
 </html>

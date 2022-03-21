@@ -1,22 +1,22 @@
 <?php
-session_start();
+
 include_once("conexao.php");
 
 $nome = filter_input(INPUT_POST,'nome', FILTER_SANITIZE_STRING);
 $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
-
+$id = mysqli_escape_string($confirma, $_POST['id']);
 /*echo "nome: $nome<br>";
 echo "email:  $email<br>";*/
 
-$resultado_clientes = "INSERT INTO clientes (nome, email, created) VALUES ('$nome','$email', NOW())";
-$resultado = mysqli_query($confirma, $resultado_clientes);
+$sql = "UPDATE clientes SET nome = '$nome, email='$email' WHRE id = '$id'";
 
 if(mysqli_insert_id($confirma)){
-    $_SESSION['msg'] = "USUÁRIO CADASTRADO COM SUCESSO!!!";
+    $_SESSION['msg'] = "ATUALIZADO CADASTRADO COM SUCESSO!!!<br>";
     header("Location: index.php");
    // echo "sucesso";
 }else{
     header("Location: index.php");
     //echo"falha";
+    echo "ERRO: " .$confirma->error;
 }

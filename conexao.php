@@ -5,6 +5,8 @@ $usuario = "root";
 $senha ="";
 $dbname = "crudrafael";
 
-//criar a conexao
-$confirma = mysqli_connect($servidor, $usuario, $senha, $dbname);
+$pdo = new PDO("mysql:dbname=".$dbname.
+    ";host=".$servidor,$usuario,$senha);
+
+
 
