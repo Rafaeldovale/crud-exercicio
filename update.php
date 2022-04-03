@@ -12,11 +12,11 @@ echo "email:  $email<br>";*/
 $sql = "UPDATE clientes SET nome = '$nome, email='$email' WHRE id = '$id'";
 
 if(mysqli_insert_id($confirma)){
-    $_SESSION['msg'] = "ATUALIZADO CADASTRADO COM SUCESSO!!!<br>";
+    //$_SESSION['msg'] = "ATUALIZADO CADASTRADO COM SUCESSO!!!<br>";
     header("Location: index.php");
-   // echo "sucesso";
+    
 }else{
     header("Location: index.php");
-    //echo"falha";
+    //echo  "<script>alert('Erro');</script>";
     echo "ERRO: " .$confirma->error;
 }

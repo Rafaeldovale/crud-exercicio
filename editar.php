@@ -50,7 +50,7 @@ if($id){
             <input type="email" name="email" placeholder="digite seu email" value="<?=$info['email'];?>">
             </label><br><br>
   
-        <input type="submit" value="Salvar">
+        <input type="submit" value="Salvar"onclick="return confirm('Tem certeza que deseja fazer esta operação')">
     </form>
 </body>
 </html>

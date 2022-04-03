@@ -11,11 +11,6 @@
 <body>
     <h1>Adicionar Cliente</h1>
 
-    <?php
-    if(isset( $_SESSION['msg']))
-        echo  $_SESSION['msg']; // vai mostar a mensagem
-        
-    ?>
     <form method="POST" action="adicionar_action.php">
 
         <div id="nome">
@@ -29,7 +24,8 @@
             <input type="email" name="email" placeholder="digite seu email">
             </label><br><br>
         </div>
-        <input type="submit" value="Adicionar">
+        <input type="submit" value="Adicionar"onclick="return confirm('Confirma o cadastro!')">
     </form>
+    
 </body>
 </html>

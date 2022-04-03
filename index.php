@@ -19,14 +19,7 @@ if($sql->rowCount()>0){
     <title>CRUD - Cadastro</title>
 </head>
 <body>
-    <h1>Cadastrar Usuário</h1>
-
-    <?php
-    if(isset( $_SESSION['msg']))
-        echo  $_SESSION['msg']; // vai mostar a mensagem
-        
-    ?>
-  
+    <h1>Cadastrar Usuário</h1>  
    <table>
        <tr>
            <th>ID</th>
