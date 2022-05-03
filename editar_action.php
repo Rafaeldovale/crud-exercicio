@@ -3,16 +3,15 @@
 require 'conexao.php';
 $id =filter_input(INPUT_POST,'id');
 $nome = filter_input(INPUT_POST,'nome');
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$cpf = filter_input(INPUT_POST, 'cpf', FILTER_SANITIZE_NUMBER_INT);
 
 
-if($nome && $email){
+if($nome && $cpf){
 
-    $sql = $pdo->prepare("UPDATE clientes SET nome= :name,
-    email = :email WHERE id=:id");
+    $sql = $pdo->prepare("UPDATE clientes SET nome= :name, cpf = :cpf WHERE id=:id");
     //trocando os itens
     $sql->bindValue(':name', $nome);
-    $sql->bindValue(':email', $email);
+    $sql->bindValue(':cpf', $cpf);
     $sql->bindValue(':id', $id);
     $sql->execute();
 

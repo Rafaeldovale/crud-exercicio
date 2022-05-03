@@ -12,11 +12,11 @@ include_once 'conexao.php';
     <form method="POST" action="update.php">
     <tr>
         <td>Nome:</td>
-        <td>Email:</td>
+        <td>Cpf:</td>
     </tr>
     <tr>
         <td><?php echo $dados['nome'].'<br><br>';?></td>
-        <td><?php echo $dados['email'].'<br><br>';?></td>
+        <td><?php echo $dados['cpf'].'<br><br>';?></td>
     </tr>
     <?php endwhile;?>
     <a href="index.php" class="btn"><button>voltar</button></a>

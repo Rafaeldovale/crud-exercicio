@@ -3,7 +3,7 @@
 $servidor = 'localhost';
 $usuario = "root";
 $senha ="";
-$dbname = "crudrafael";
+$dbname = "crudProjetoInt";
 
 $pdo = new PDO("mysql:dbname=".$dbname.
     ";host=".$servidor,$usuario,$senha);

@@ -6,7 +6,7 @@ $info=[];
 $id = filter_input(INPUT_GET, 'id');
 if($id){
 
-    $sql = $pdo->prepare("SELECT * FROM clientes WHERE id= :id");
+    $sql = $pdo->prepare("SELECT * FROM produto WHERE id= :id");
     $sql->bindValue('id',$id);
     $sql->execute();
 
@@ -15,11 +15,11 @@ if($id){
         $info = $sql->fetch(PDO::FETCH_ASSOC);
         
     }else{
-        header("Location: index.php");
+        header("Location: index2.php");
         exit;
     }
 }else{
-    header("Location: index.php");
+    header("Location: index2.php");
     exit;
 }
 ?>
@@ -33,22 +33,17 @@ if($id){
     <title>CRUD - Cadastro</title>
 </head>
 <body>
-    <h1>Editar Cliente</h1>
+    <h1>Editar Produto</h1>
 
    
-    <form method="POST" action="editar_action.php">
+    <form method="POST" action="editar_action2.php">
         <input type="hidden" name="id" value="<?=$info['id'];?>">
 
 
-            <label>Nome:
-            <input type="text" name="nome" placeholder="digite seu nome" value="<?=$info['nome'];?>">
+            <label>Nome Produto:
+            <input type="text" name="nomeproduto" placeholder="digite o Produto" value="<?=$info['nomeproduto'];?>">
             </label><br><br>
         
-
-        
-            <label>Cpf:
-            <input type="number" name="cpf" placeholder="digite o cpf" value="<?=$info['cpf'];?>">
-            </label><br><br>
   
         <input type="submit" value="Salvar"onclick="return confirm('Tem certeza que deseja fazer esta operação')">
     </form>

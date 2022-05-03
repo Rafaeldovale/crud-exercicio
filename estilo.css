@@ -1,7 +1,9 @@
 *{
     box-sizing: border-box;
+    
 }
 body{
+    width: 100%;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
     background-color: aqua;
@@ -11,11 +13,22 @@ h1{
     color: rgb(250, 89, 89);
     text-shadow: 5px 5px 10px;
 }
+h2{
+    
+    color: rgb(250, 89, 89);
+    text-shadow: 5px 5px 10px;
+}
+h4{
+    color: rgb(250, 89, 89);
+    text-shadow: 5px 5px 10px;
+
+}
 #nome{
     color:red;
     text-shadow:  5px 5px 10px;
 }
-#email{
+
+#cpf{
     color: red;
     text-shadow: 5px 5px 10px;
 }
@@ -35,3 +48,13 @@ button{
     border-radius: 20px;
     font-size: 50px;
 }
+a:link  { 
+    color :  #00F ; 
+    text-decoration :  none ; 
+}
+   
+a:hover  { 
+    color :  #F00 ; 
+    text-decoration :  underline ; 
+}
+   

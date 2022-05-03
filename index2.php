@@ -2,7 +2,7 @@
 require 'conexao.php';
 
 $lista=[];
-$sql = $pdo->query("SELECT * FROM clientes");
+$sql = $pdo->query("SELECT * FROM produto");
 
 if($sql->rowCount()>0){
     $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -19,32 +19,27 @@ if($sql->rowCount()>0){
     <title>CRUD - Cadastro</title>
 </head>
 <body>
-    <h1>Cadastrar Usuário</h1>  
+    <h1>Cadastrar Produtos</h1>  
    <table>
        <tr>
            <th>ID</th>
-           <th>NOME COMPLETO</th>
-          
-           <th>CPF</th>
-           <th>Ações</th>
-
+           <th>NOME</th>
        </tr>
        <?php foreach($lista as $usuario):?>
             <tr>
                 <td><?php echo $usuario['id'];?></td>
-                <td><?php echo $usuario['nome'];?></td>
-              
-                <td><?php echo $usuario['cpf'];?></td>
+                <td><?php echo $usuario['nomeproduto'];?></td>
+                
                 <td>
-                    <button><a href="editar.php?id=<?php echo $usuario['id'];?>">editar</a><br></button>
-                    <button><a href="delete.php?id=<?php echo $usuario['id'];?>"onclick="return confirm('Tem certeza que deseja fazer esta operação')"> deletar </a></button>
+                    <a href="editar2.php?id=<?php echo $usuario['id'];?>">[ EDITAR ]</a>
+                    <a href="delete2.php?id=<?php echo $usuario['id'];?>"onclick="return confirm('Tem certeza que deseja fazer esta operação')">[ DELETAR ]</a>
                 </td>
             </tr>
 
        <?php endforeach;?>
        
    </table>
-   <form method="POST" action="adicionar.php">
+   <form method="POST" action="adicionar2.php">
        <button>Cadastrar</button>
    </form>
    <a href="paginaInc.php">Voltar</a>

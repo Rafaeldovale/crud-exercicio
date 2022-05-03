@@ -9,22 +9,16 @@
     <title>CRUD - Cadastro</title>
 </head>
 <body>
-    <h1>Adicionar Cliente</h1>
+    <h1>Adicionar Produto</h1>
 
-    <form method="POST" action="adicionar_action.php">
+    <form method="POST" action="adicionar_action2.php">
 
         <div id="nome">
-            <label>Nome:
-            <input type="text" name="nome" placeholder="digite o nome completo">
+            <label>Nome do Produto:
+            <input type="text" name="nomeproduto" placeholder="Nome do Produto">
             </label><br><br>
         </div>
         
-
-        <div id="cpf">
-            <label>Cpf:
-            <input type="number" name="cpf" placeholder="digite seu cpf">
-            </label><br><br>
-        </div>
         <input type="submit" value="Adicionar"onclick="return confirm('Confirma o cadastro!')">
     </form>
     
